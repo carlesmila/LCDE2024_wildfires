@@ -165,7 +165,7 @@ p1 <- ggdotchart(pm25_trendpop, x = "name", y = "coef",
                  font.label = list(color = "white", size = 9,
                                    vjust = 0.5)) +
   geom_hline(yintercept = 0, linetype = 2, color = "grey20") +
-  scale_colour_manual(values = c("#1B9E77", "#7570B3", "#D95F02", "#E7298A")) +
+  scale_colour_manual(values = c("#EE3377", "#33BBEE", "#EE7733", "#009988")) +
   scale_size_manual(values = c(1,3,5)) +
   labs(color = "Region") +
   xlab("") +
@@ -186,7 +186,7 @@ p2 <- ggdotchart(FWI_trendpop, x = "name", y = "coef",
                  font.label = list(color = "white", size = 9,
                                    vjust = 0.5)) +
   geom_hline(yintercept = 0, linetype = 2, color = "grey20") +
-  scale_colour_manual(values = c("#1B9E77", "#7570B3", "#D95F02", "#E7298A")) +
+  scale_colour_manual(values = c("#EE3377", "#33BBEE", "#EE7733", "#009988")) +
   scale_size_manual(values = c(1,3,5)) +
   labs(color = "Region") +
   xlab("") +
@@ -245,7 +245,7 @@ p2 <- ggdraw() +
 rm("p1", "p2", "alldata", "bilegend", "FWI_nuts2",
    "mapbivar", "nuts0", "nuts2", "pm25_nuts2")
 
-# 7. Inequalities ----
+# 5. Inequalities ----
 # Data prep
 pm25_nuts2 <- read_csv("data/processed/pm25_nuts2.csv")
 FWI_nuts2 <- read_csv("data/processed/FWI_nuts2.csv") |>
@@ -283,6 +283,8 @@ p2 <- ggboxplot(pm25_nuts2, x = "Classification", y = "FWI",
   ylab("Average FWI")
 pall <- ggarrange(p1, p2, nrow = 1)
 # ggsave("figures/inequalities_nuts2.png", pall,  width = 12, height = 5)
+rm("p1", "p2", "pall", "alldata", "FWImeans",
+   "pm25means", "pm25_nuts2", "FWI_nuts2", "ineq")
 
 # 6. Yearly death counts in Europe ----
 attreuro_main <- read_csv("data/processed/attributable_euro.csv") |>
